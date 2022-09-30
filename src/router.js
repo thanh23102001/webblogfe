@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 
+
+import Login from './components/Login';
+
 Vue.use(Router);
 
 export default new Router({
@@ -22,6 +25,15 @@ export default new Router({
     alias: '/edit-blog',
     name: 'edit-blog',
     component: () => import('./components/EditBlog'),
-}
+},
+{
+  path: '/login',
+  component: Login
+},
+// {
+//   path: '/register',
+//   component: Register
+// },
   ]
 });
+

@@ -46,7 +46,7 @@
 <script>
 import BlogDataService from "../services/BlogDataService";
 import CategoryDataService from "../services/CategoryDataService";
-
+import UserService from '../services/UserService';
 export default {
  name: 'add-blog',
     data() {
@@ -93,6 +93,17 @@ export default {
     },
     mounted() {
         this.getCategories();
-    }
-}
+        UserService.getUserBoard().then(
+      response => {
+        this.content = response.data;
+      },
+      error => {
+        this.content =
+          (error.response && error.response.data) ||
+          error.message ||
+          error.toString();
+      }
+    );
+  }
+};
 </script>

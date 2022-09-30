@@ -8,7 +8,15 @@
                  <li class="nav-item">
           <router-link to="/add" class="nav-link" style="color:white;">Add Blog</router-link>
               </li>
-               </div>
+               <li class="nav-item">
+          <router-link to="/home" class="nav-link">
+            <font-awesome-icon icon="home" />Home
+          </router-link>
+        </li>
+                <li class="nav-item right">
+          <router-link class="nav-link" to="/login">Login</router-link>
+        </li>
+      </div>
      </nav>
          <div class="container mt-3"> 
       <router-view />
@@ -19,5 +27,6 @@
 export default {
   name: 'app',
 };
+
 </script>
 

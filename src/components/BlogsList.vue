@@ -86,6 +86,7 @@
 </template>
 <script>
 import BlogDataService from "../services/BlogDataService";
+import UserService from '../services/UserService';
 export default {
       name: "blogs-list",
   data() {
@@ -128,6 +129,17 @@ export default {
     },
    mounted() {
     this.retrieveBlogs();
-}
+    UserService.getPublicContent().then(
+      response => {
+        this.content = response.data;
+      },
+      error => {
+        this.content =
+          (error.response && error.response.data) ||
+          error.message ||
+          error.toString();
+      }
+    );
+   }
 };
 </script>
